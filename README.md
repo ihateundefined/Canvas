@@ -72,8 +72,9 @@ Canvas/
 │   ├── 2-2.jpg              # 레벨 2 오른쪽 이미지
 │   ├── 3-1.jpg              # 레벨 3 왼쪽 이미지
 │   ├── 3-2.jpg              # 레벨 3 오른쪽 이미지
-│   └── gameStart.png        # 게임 첫 화면 스크린샷
-│   └── mainPage.png         # 게임 화면 스크린샷
+│   ├── gameStart.png        # 게임 첫 화면 스크린샷
+│   ├── mainPage.png         # 게임 화면 스크린샷
+│   ├── favicon.ico          # favicon 이미지
 │   └── checkCoordinate.png  # 좌표 도구 스크린샷
 └── README.md                # 프로젝트 설명
 ```
