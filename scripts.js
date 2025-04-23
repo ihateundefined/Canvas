@@ -211,6 +211,26 @@ function startTimer() {
   }, 1000);
 }
 
+function getCanvasCoordinates(e, canvas) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+
+  let clientX, clientY;
+  if (e.type.includes("touch")) {
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  } else {
+    clientX = e.clientX;
+    clientY = e.clientY;
+  }
+
+  return {
+    x: (clientX - rect.left) * scaleX,
+    y: (clientY - rect.top) * scaleY,
+  };
+}
+
 // 캔버스 클릭 이벤트
 [leftCanvas, rightCanvas].forEach((canvas) => {
   canvas.addEventListener("mousedown", handleMouseDown);
@@ -218,37 +238,30 @@ function startTimer() {
   canvas.addEventListener("mouseup", handleMouseUp);
 
   // 모바일 캔버스 터치치
-  canvas.addEventListener("touchstart", handleTouchStart);
-  canvas.addEventListener("touchmove", handleTouchMove);
-  canvas.addEventListener("touchend", handleTouchEnd);
+  canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
+  canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+  canvas.addEventListener("touchend", handleTouchEnd, { passive: false });
 });
 
 // 터치 이벤트 처리
 function handleTouchStart(e) {
   e.preventDefault();
-  const touch = e.touches[0];
-  const mouseEvent = new MouseEvent("mousedown", {
-    clientX: touch.clientX,
-    clientY: touch.clientY,
-  });
-  handleMouseDown(mouseEvent);
+  const canvas = e.target;
+  const coords = getCanvasCoordinates(e, canvas);
+  handleMouseDown(e, canvas);
 }
 
 function handleTouchMove(e) {
   e.preventDefault();
   if (!isDrawing) return;
-  const touch = e.touches[0];
-  const mouseEvent = new MouseEvent("mousemove", {
-    clientX: touch.clientX,
-    clientY: touch.clientY,
-  });
-  handleMouseMove(mouseEvent);
+  const canvas = e.target;
+  const coords = getCanvasCoordinates(e, canvas);
+  handleMouseMove(e, canvas);
 }
 
 function handleTouchEnd(e) {
   e.preventDefault();
-  const mouseEvent = new MouseEvent("mouseup", {});
-  handleMouseUp(mouseEvent);
+  handleMouseUp(e);
 }
 
 function handleMouseDown(e) {
