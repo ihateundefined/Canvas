@@ -64,7 +64,7 @@ Canvas/
 
 1. 레포지토리를 클론합니다:
    ```bash
-   git clone https://github.com/ihateundefined/Canvas.git
+   git clone git@github.com:ihateundefined/Canvas.git
    ```
 2. 프로젝트 디렉토리로 이동합니다:
    ```bash
