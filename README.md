@@ -85,9 +85,7 @@ Canvas/
 
 ## 📫 Link to
 
-프로젝트 링크: [https://github.com/your-username/spot-the-difference](https://github.com/your-username/spot-the-difference)
-
-- **Homepage**: https://ihateundefined.github.io/MyPortfolio/
+- **Homepage**: [https://ihateundefined.github.io/Canvas/](https://ihateundefined.github.io/Canvas/)
 - **이메일**: ihateundefined@gmail.com
 - **GitHub**: https://github.com/ihateundefined/Canvas
 
