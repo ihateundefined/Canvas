@@ -45,7 +45,7 @@
 ## 📝 프로젝트 구조
 
 ```
-spot-the-difference/
+Canvas/
 ├── index.html        # 메인 HTML 파일
 ├── styles.css        # 스타일시트
 ├── scripts.js        # 게임 로직
@@ -64,11 +64,11 @@ spot-the-difference/
 
 1. 레포지토리를 클론합니다:
    ```bash
-   git clone https://github.com/your-username/spot-the-difference.git
+   git clone https://github.com/ihateundefined/Canvas.git
    ```
 2. 프로젝트 디렉토리로 이동합니다:
    ```bash
-   cd spot-the-difference
+   cd Canvas
    ```
 3. 로컬 서버를 실행하거나 `index.html`을 브라우저에서 직접 엽니다:
    ```bash
@@ -81,13 +81,15 @@ spot-the-difference/
 
 - 추가 레벨 및 난이도 설정
 - 사용자 리더보드 및 점수 저장 기능
-- 다양한 이미지 테마 (예: 동물, 풍경)
 - 사운드 효과 및 배경 음악 추가
-- 다국어 지원
 
-## 📞 연락처
+## 📫 Link to
 
 프로젝트 링크: [https://github.com/your-username/spot-the-difference](https://github.com/your-username/spot-the-difference)
+
+- **Homepage**: https://ihateundefined.github.io/MyPortfolio/
+- **이메일**: ihateundefined@gmail.com
+- **GitHub**: https://github.com/ihateundefined/Canvas
 
 궁금한 점이나 피드백이 있다면 이슈를 열어주세요! 😊
 
