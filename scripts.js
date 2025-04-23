@@ -73,13 +73,11 @@ nextLevelBtn.addEventListener("click", () => {
 function calculateCanvasSize() {
   const header = document.querySelector("header");
   const headerHeight = header.getBoundingClientRect().height;
-  const availableWidth = window.innerWidth; // 전체 화면 너비
-  const availableHeight = window.innerHeight - headerHeight; // 헤더 제외 높이
+  const availableWidth = window.innerWidth;
+  const availableHeight = window.innerHeight - headerHeight;
 
   // 원본 이미지 비율
   const imageRatio = originalImageHeight / originalImageWidth;
-
-  // 두 캔버스가 가로로 배치되므로, 각 캔버스의 최대 너비는 화면 너비의 절반
   const maxSingleWidth = availableWidth / 2;
 
   // 비율에 따라 캔버스 크기 계산
@@ -100,14 +98,14 @@ function calculateCanvasSize() {
   };
 }
 
-// 캔버스와 이미지를 다시 그리는 함수
+// 캔버스와 이미지를 다시 그리기기
 function resizeAndRedrawCanvases() {
   const canvasSize = calculateCanvasSize();
 
   [leftCanvas, rightCanvas].forEach((canvas) => {
     canvas.width = canvasSize.width;
     canvas.height = canvasSize.height;
-    canvas.style.width = `${canvasSize.width}px`; // CSS 크기 명시
+    canvas.style.width = `${canvasSize.width}px`;
     canvas.style.height = `${canvasSize.height}px`;
   });
 
@@ -170,12 +168,12 @@ function startLevel(level) {
     }
   };
 
-  // Reset and start timer
+  // 타이머 시작 및 재설정정
   resetTimer();
   startTimer();
 }
 
-// Timer
+// 타이머
 function resetTimer() {
   timeRemaining = 60;
   timerText.innerText = "1:00";
@@ -187,7 +185,7 @@ function startTimer() {
   timerInterval = setInterval(() => {
     timeRemaining--;
 
-    // 카운트다운 텍스트 업데이트
+    // 타이머 카운트다운 텍스트 업데이트
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
     timerText.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
@@ -219,7 +217,7 @@ function startTimer() {
   canvas.addEventListener("mousemove", handleMouseMove);
   canvas.addEventListener("mouseup", handleMouseUp);
 
-  // 모바일 지원을 위한 터치 이벤트 추가
+  // 모바일 캔버스 터치치
   canvas.addEventListener("touchstart", handleTouchStart);
   canvas.addEventListener("touchmove", handleTouchMove);
   canvas.addEventListener("touchend", handleTouchEnd);
@@ -376,13 +374,13 @@ function handleMouseUp(e) {
     result.innerText = "정답입니다!";
     result.className = "text-center mt-4 text-xl font-bold text-green-600";
 
-    console.log(`Found Differences: ${foundDifferences}/${totalDifferences}`); // 디버깅 로그
+    console.log(`틀린 그림 찾기: ${foundDifferences}/${totalDifferences}`);
 
     if (foundDifferences >= totalDifferences) {
       clearInterval(timerInterval);
       result.innerText = "모두 찾았습니다! 다음 문제로 이동하세요.";
       nextLevelBtn.classList.remove("hidden");
-      console.log("Next Level Button should be visible"); // 디버깅 로그
+      console.log("다음 단계 버튼 보여야함!");
 
       if (currentLevel === 3) {
         endGame();

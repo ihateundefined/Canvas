@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>좌표 찍기 툴</title>
+    <title>좌표 확인하기</title>
     <style>
       body {
         text-align: center;
@@ -40,7 +40,6 @@
         coordText.textContent = `좌표: ${x}, ${y}`;
         console.log(`Clicked at: x=${x}, y=${y}`);
 
-        // 시각적으로 찍힌 위치 표시 (동그라미)
         ctx.beginPath();
         ctx.arc(x, y, 5, 0, Math.PI * 2);
         ctx.fillStyle = "red";
