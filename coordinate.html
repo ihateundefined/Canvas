@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>좌표 찍기 툴</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: sans-serif;
+      }
+      canvas {
+        border: 2px solid #333;
+        cursor: crosshair;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>이미지에서 좌표 찍기</h2>
+    <canvas id="coordCanvas"></canvas>
+    <p id="coords">좌표: - , -</p>
+
+    <script>
+      const canvas = document.getElementById("coordCanvas");
+      const ctx = canvas.getContext("2d");
+      const coordText = document.getElementById("coords");
+
+      const image = new Image();
+      image.src = "./sources/3-1.jpg";
+      image.onload = () => {
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        ctx.drawImage(image, 0, 0);
+      };
+
+      canvas.addEventListener("click", (e) => {
+        const x = e.offsetX;
+        const y = e.offsetY;
+
+        coordText.textContent = `좌표: ${x}, ${y}`;
+        console.log(`Clicked at: x=${x}, y=${y}`);
+
+        // 시각적으로 찍힌 위치 표시 (동그라미)
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = "red";
+        ctx.fill();
+      });
+    </script>
+  </body>
+</html>

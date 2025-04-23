@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>틀린그림찾기</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div
+      id="mainScreen"
+      class="flex flex-col items-center justify-center min-h-screen"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-800">
+        틀린 그림 찾기
+      </h1>
+      <button
+        id="startGameBtn"
+        class="btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-xl"
+      >
+        게임 시작
+      </button>
+    </div>
+
+    <div id="gameScreen" class="hidden">
+      <header class="bg-white shadow-sm p-2">
+        <div
+          class="container mx-auto flex flex-row justify-between items-center"
+        >
+          <div class="flex items-center space-x-1">
+            <div class="bg-gray-200 rounded-full h-5 w-20 overflow-hidden">
+              <div
+                id="timerBar"
+                class="timer-bar bg-red-500 h-full w-full"
+              ></div>
+            </div>
+            <span id="timerText" class="text-sm font-medium">1:00</span>
+          </div>
+          <h1
+            id="levelTitle"
+            class="text-base md:text-lg font-bold text-center"
+          >
+            틀린 그림 찾기 첫번째 문제
+          </h1>
+          <div class="flex items-center space-x-2 text-sm">
+            <span id="findCount" class="font-medium">0/5</span>
+            <span id="scoreDisplay" class="font-medium">점수: 0</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="canvas-container">
+        <canvas id="leftCanvas"></canvas>
+        <canvas id="rightCanvas"></canvas>
+      </div>
+
+      <div
+        id="result"
+        class="text-center mt-4 text-xl font-bold text-green-600"
+      ></div>
+
+      <div class="flex justify-center mt-6">
+        <button
+          id="nextLevelBtn"
+          class="hidden btn-primary bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg"
+        >
+          다음 문제
+        </button>
+      </div>
+    </div>
+
+    <script src="./scripts.js"></script>
+  </body>
+</html>
